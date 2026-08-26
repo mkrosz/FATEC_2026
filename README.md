@@ -1,66 +1,44 @@
-# FATEC_2026 - DEVOPS
+# FATEC_2026 - DASHBOARD
 
-# Aula 01 - Apresentação da Disciplina e Introdução ao DevOps
+# 🚀 Projetos e Atividades
 
-Repositório destinado ao registro das atividades e projetos desenvolvidos ao longo da disciplina na **Fatec**.
-
----
-
-## 📌 Informações Gerais
-- **Docente:** Prof. Me. Deivison S. Takatu
-- **Contato:** `deivison.takatu@fatec.sp.gov.br`
+> Repositório destinado à organização dos projetos, atividades práticas e experimentos desenvolvidos ao longo das disciplinas.
 
 ---
 
-## 👥 Integrantes do Grupo
-- *Karina Moraes*
-- *Mike Franguelli*
-- *Nicolly Lemos*
-- *Pedro Henrique*
-- *Rafaela Mansano*
+## 📚 Projetos da Disciplina de DevOps
+
+Abaixo estão organizados os projetos desenvolvidos durante as aulas, juntamente com seus respectivos repositórios, versões publicadas e tecnologias utilizadas.
+
+| #  | Aula    | Projeto                             | Repositório         | Deploy             | Tecnologia | Descrição                      |
+| -- | ------- | ----------------------------------- | ------------------- | ------------------ | ------------------------------- | ------------------------------ |
+| 01 | Aula 01 | **Introdução a DevOps** | 🔗 [Repositório](#) | 🌐 [N/A](#) | N/A | Resumo da primeira aula |
+| 02 | Aula 02 | **Conceitos de CI/CD de software** | 🔗 [Repositório](https://github.com/nicollylemos/LivrariaDevOps.git) | 🌐 [Ver online](https://livraria-dev-ops.vercel.app/) | GitHub / HTML / JS / CSS | Livraria usando conceitos de DevOps |
+| 03 | Aula 03 | **Gerência de configuração** | 🔗 [Repositório](https://github.com/nicollylemos/ProjetoGitTemplate.git) | 🌐 [Ver online](https://projeto-git-template.vercel.app/) | React | Configurando projeto com React |
+| 04 | Aula 04 | **Ferramentas de CI/CD** | 🔗 [Repositório](#) | 🌐 [N/A](#) | N/A | Comparação entre ferramentas de CI/CD |
 
 ---
 
-## 📖 Resumo dos Conteúdos da Aula 01
+## 📁 Organização do Repositório
 
-### 1. Controle de Versão e Ferramentas
-- **Conceito:** Registro cronológico de alterações no código-fonte, permitindo rastreabilidade e recuperação de versões anteriores.
-- **Colaboração:** Trabalho simultâneo via ramificações (*branches*) para desenvolvimento paralelo de funcionalidades sem interferência direta na versão principal.
-- **Sistemas:** Utilização de plataformas como GitHub, GitLab e Bitbucket.
-
-### 2. Automação de Pipelines (CI/CD)
-- **Pipelines:** Sequência automatizada de etapas que vai do desenvolvimento à entrega final (build, testes, análise e deploy). Reduz falhas manuais e acelera o ciclo de feedback.
-- **Integração Contínua (CI):** Integração frequente de código ao repositório principal com compilação e testes automatizados a cada commit/pull request, identificando bugs precocemente.
-- **Entrega Contínua (CD):** Garantia de que as versões testadas e validadas estejam sempre prontas para publicação rápida, segura e padronizada.
-
-### 3. Qualidade e Testes de Software
-- **Validação Contínua:** Verificação automatizada de cobertura de código, complexidade, padronização e vulnerabilidades de segurança.
-- **Tipos de Testes Automatizados:**
-  - Testes Unitários
-  - Testes de Integração
-  - Testes Funcionais
-  - Testes End-to-End (E2E)
-
-### 4. Containers e Estratégias de Deploy
-- **Containers (Docker):** Empacotamento de aplicações e suas dependências em ambientes padronizados, garantindo paridade entre desenvolvimento, homologação e produção.
-- **Estratégias de Implantação:**
-  - *Rolling Update*
-  - *Blue-Green Deployment*
-  - *Canary Release*
-
----
-
-## 📊 Critérios de Avaliação
-
-A média semestral será calculada por:
-
-$$\text{Média Final} = (P1 \times 0.25) + (P2 \times 0.25) + ((PJ + AT) \times 0.25)$$
-
-- **P1:** Prova Teórico-Prática 1
-- **P2:** Prova Teórico-Prática 2
-- **PJ:** Projeto da Disciplina
-- **AT:** Atividades Práticas Semanais
-
-* Informações sujeitas a alterações com base nos critérios da instituição.
+```text
+📦 Estrutura simplificada do Repositório
+│
+├── 📁 DevOps/
+│   ├── Aula_01/
+│   ├── Aula_02/
+│   ├── Aula_03/
+│   ├── Aula_04/
+│   └── Material de Aula/
+│
+├── 📁 Outros/
+│   └── Python Captura de Dados
+│
+├── 📁 Programação Multiplataforma/
+│   └── Plataformio/
+│       └── ControlePresenca
+│
+└── README.md (you are here!!)
+```
 
 ---
