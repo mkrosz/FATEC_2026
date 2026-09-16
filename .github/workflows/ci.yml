@@ -1,0 +1,38 @@
+name: Pipeline Aula 07 - Testes
+
+on:
+  push:
+    paths:
+      - 'DevOps/Aula_07/projeto-pipeline-testes/**'
+  pull_request:
+    paths:
+      - 'DevOps/Aula_07/projeto-pipeline-testes/**'
+  workflow_dispatch:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: DevOps/Aula_07/projeto-pipeline-testes
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: 'DevOps/Aula_07/projeto-pipeline-testes/package-lock.json'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar Linter
+        run: npm run lint --if-present
+
+      - name: Executar Testes
+        run: npm test
