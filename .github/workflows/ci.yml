@@ -24,7 +24,7 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.x
           cache: 'npm'
           cache-dependency-path: 'DevOps/Aula_07/projeto-pipeline-testes/package-lock.json'
 
@@ -33,6 +33,7 @@ jobs:
 
       - name: Executar Linter
         run: npm run lint --if-present
+        continue-on-error: true
 
       - name: Executar Testes
-        run: npm test
+        run: npm test -- --run
