@@ -11,35 +11,37 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: DevOps/Aula_05
+        working-directory: DevOps/Aula_05/web-app-medicine
 
     steps:
-      # 1. Checkout simples sem histórico complexo do Git
+      # 1. Checkout do código-fonte
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      # 2. Configuração do Node.js
+      # 2. Configuração do ambiente Node.js com suporte a cache
       - name: Configurar ambiente Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: DevOps/Aula_05/web-app-medicine/package-lock.json
 
-      # 3. Instalação das dependências
+      # 3. Instalação limpa das dependências
       - name: Instalar dependências
-        run: npm install
+        run: npm ci || npm install
 
-      # 4. Verificação de Segurança (sem falhar a pipeline se houver avisos)
+      # 4. Análise de Segurança de Dependências (NPM Audit)
       - name: Verificação de Segurança (NPM Audit)
         run: npm audit || true
 
-      # 5. Executar Build do projeto
+      # 5. Execução do Build do projeto
       - name: Executar Build do projeto
         run: npm run build --if-present
 
-      # 6. Upload dos Artefatos de Build
+      # 6. Upload dos Artefatos de Build gerados
       - name: Upload dos Artefatos de Build
         uses: actions/upload-artifact@v4
         with:
           name: build-web-app-medicine
-          path: DevOps/Aula_05/dist/
+          path: DevOps/Aula_05/web-app-medicine/dist/
           retention-days: 5
