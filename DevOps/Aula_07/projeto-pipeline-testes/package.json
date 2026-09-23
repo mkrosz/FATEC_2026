@@ -7,6 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "test": "vitest run",
+    "test:unit": "vitest run tests/unit --passWithNoTests || vitest run",
+    "test:integration": "vitest run tests/integration --passWithNoTests || vitest run",
+    "test:performance": "vitest run tests/performance --passWithNoTests || vitest run",
     "lint": "eslint ."
   },
   "dependencies": {
