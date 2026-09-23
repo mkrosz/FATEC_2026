@@ -10,7 +10,6 @@ on:
     paths:
       - 'DevOps/Aula_05/**'
 
-# ADICIONE ESTA SEÇÃO
 permissions:
   contents: read
 
@@ -22,7 +21,38 @@ jobs:
         working-directory: DevOps/Aula_05
 
     steps:
+      # 1. Checkout do código
       - name: Checkout do código
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Baixa todo o histórico do Git para evitar erros com comandos git
+          fetch-depth: 0
+
+      # 2. Configuração do ambiente Node.js
+      - name: Configurar ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: DevOps/Aula_05/package-lock.json
+
+      # 3. Instalação e Testes
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar testes automatizados
+        run: npm test --if-present
+
+      # 4. Análise de Segurança Nativa (Substituindo o Snyk)
+      - name: Verificação de Segurança (NPM Audit)
+        run: npm audit --audit-level=high
+
+      # 5. Build e Upload de Artefatos
+      - name: Executar Build do projeto
+        run: npm run build --if-present
+
+      - name: Upload dos Artefatos de Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-web-app-medicine
+          path: DevOps/Aula_05/dist/
+          retention-days: 5
