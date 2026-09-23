@@ -1,0 +1,45 @@
+name: CI Pipeline - Aula 06 (Web App Medicine)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: DevOps/Aula_06/web-app-medicine
+
+    steps:
+      # 1. Checkout do código-fonte
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # 2. Configuração do ambiente Node.js com cache
+      - name: Configurar ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: DevOps/Aula_06/web-app-medicine/package-lock.json
+
+      # 3. Instalação de dependências
+      - name: Instalar dependências
+        run: npm ci || npm install
+
+      # 4. Análise de Segurança de Dependências (NPM Audit)
+      - name: Verificação de Segurança (NPM Audit)
+        run: npm audit || true
+
+      # 5. Execução de Build do projeto
+      - name: Executar Build do projeto
+        run: npm run build --if-present
+
+      # 6. Upload dos Artefatos de Build
+      - name: Upload dos Artefatos de Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-web-app-medicine-aula06
+          path: DevOps/Aula_06/web-app-medicine/dist/
+          retention-days: 5
